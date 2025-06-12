@@ -15,7 +15,6 @@ function App() {
     }>
       <GridItem area="nav" p={4}>
           <NavBar></NavBar>
-          <ColorModeSwitch></ColorModeSwitch>
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" bg="gold">Aside</GridItem>
