@@ -1,7 +1,6 @@
-import { Box, Grid, GridItem, Show, Switch } from "@chakra-ui/react";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./Components/NavBar";
-import theme from "./theme";
+import ColorModeSwitch from "./Components/ColorModeSwitch";
 import './index.css'
 
 function App() {
@@ -15,7 +14,8 @@ function App() {
       }
     }>
       <GridItem area="nav" p={4}>
-          <NavBar></NavBar>        
+          <NavBar></NavBar>
+          <ColorModeSwitch></ColorModeSwitch>
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" bg="gold">Aside</GridItem>
