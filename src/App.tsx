@@ -1,6 +1,8 @@
 import { Box, Grid, GridItem, Show, Switch } from "@chakra-ui/react";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import NavBar from "./Components/NavBar";
+import theme from "./theme";
+import './index.css'
 
 function App() {
 
