@@ -12,7 +12,7 @@ function App() {
         lg: `"nav nav" "aside main"`,
       }
     }>
-      <GridItem area="nav" bg="gray.900" p={4}>
+      <GridItem area="nav" p={4}>
           <NavBar></NavBar>        
       </GridItem>
       <Show above="lg">
