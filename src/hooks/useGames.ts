@@ -7,9 +7,10 @@ interface FetchGamesResponse{
     // Add other game properties as needed
 }
 
-interface Game{
+export interface Game{
     id: number;
     name: string;
+    background_image: string;
     // Add other game properties as needed
 }
 
