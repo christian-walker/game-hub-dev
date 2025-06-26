@@ -7,10 +7,17 @@ interface FetchGamesResponse{
     // Add other game properties as needed
 }
 
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
+}
+
 export interface Game{
     id: number;
     name: string;
     background_image: string;
+    parent_platforms:  { platform: Platform }[];
     // Add other game properties as needed
 }
 
