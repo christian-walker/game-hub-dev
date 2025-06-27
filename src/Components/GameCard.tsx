@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames";
 import { icons } from "react-icons";
 import PlatformIconList from "./PlatformIconList";
 import MetaCritic from "./MetaCritic";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
     game: Game
@@ -14,7 +15,7 @@ const GameCard = ({ game }: Props) => {
     <>
     <Card borderRadius={10} overflow="hidden">
         <Image
-            src={game.background_image}
+            src={getCroppedImageUrl(game.background_image)}
             alt={game.name}
             objectFit="cover"
             width="100%"
