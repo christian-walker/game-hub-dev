@@ -1,6 +1,5 @@
-import React from 'react'
 import { Genre } from '../hooks/useGenres';
-import { Box, HStack, Image, Text } from '@chakra-ui/react';
+import { HStack, Image, Text } from '@chakra-ui/react';
 
 interface props {
     genre: Genre
