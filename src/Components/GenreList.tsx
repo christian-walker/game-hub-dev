@@ -6,6 +6,7 @@ const GenreList = () => {
     const {data} = useGenres();
   return (
     <VStack justifyContent="start" alignItems="start" padding={5}>
+        
         <Heading fontSize="2xl" marginBottom={2}>Genres</Heading>
         {
             data.map((genre) => (
