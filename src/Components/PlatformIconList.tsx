@@ -1,4 +1,4 @@
-import useGames, { Platform } from '../hooks/useGames';
+import useGames, { Platform } from '../hooks/usePlatforms';
 import { Box, Flex, HStack, Icon, List, ListItem, SimpleGrid, Text } from '@chakra-ui/react';
 import { Game } from '../hooks/useGames';
 import { FaApple, FaApplePay, FaLinux, FaPlaystation, FaWindows, FaXbox, FaAndroid } from "react-icons/fa";

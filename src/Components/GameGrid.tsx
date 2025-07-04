@@ -5,13 +5,15 @@ import GameCardSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import useData from '../hooks/useData';
 import { Genre } from '../hooks/useGenres';
+import { Platform } from '../hooks/usePlatforms';
 
 
 interface Props {
-    selectedGenre: Genre | null
+    selectedGenre: Genre | null;
+    selectedPlatform: Platform | null;
 }
-const GameGrid = ({selectedGenre} : Props) => {
-    const {data, loading, error} = useGames(selectedGenre);
+const GameGrid = ({selectedGenre, selectedPlatform} : Props) => {
+    const {data, loading, error} = useGames(selectedGenre, selectedPlatform);
     const skeletonCount = [1,2,3,4,5,6]; // Number of skeletons to show when loading
   
     return (
