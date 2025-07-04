@@ -5,8 +5,9 @@ import getCroppedImageUrl from '../services/image-url';
 
 interface Props {
   setSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null
 }
-const GenreList = ({setSelectGenre} : Props) => {
+const GenreList = ({setSelectGenre, selectedGenre} : Props) => {
     const {data, loading, error} = useGenres();
     const skeletonCount = [1,2,3,4,5,6,7,8,9, 10]; // Number of skeletons to show when loading
 
@@ -29,7 +30,7 @@ const GenreList = ({setSelectGenre} : Props) => {
                 data.map((genre) => (
                   <HStack key={genre.id}>
                   <Image src={getCroppedImageUrl(genre.image_background)} boxSize="32px" borderRadius={8} objectFit="cover" marginRight={2} />
-                  <Button variant="text" onClick={() => setSelectGenre(genre) } fontSize="lg">{genre.name}</Button>
+                  <Button variant="text" onClick={() => setSelectGenre(genre) } fontSize="lg" fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}>{genre.name}</Button>
               </HStack>
                 ))
             }
