@@ -4,8 +4,11 @@ import ColorModeSwitch from "./Components/ColorModeSwitch";
 import './index.css'
 import GameGrid from "./Components/GameGrid";
 import GenreList from "./Components/GenreList";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
 
   return (
    <>
@@ -23,11 +26,11 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" p={5}>
-          <GenreList></GenreList>
+          <GenreList setSelectGenre={(genre) => setSelectedGenre(genre)}></GenreList>
         </GridItem>
       </Show>
       <GridItem area="main" p={4}>
-        <GameGrid></GameGrid>
+        <GameGrid selectedGenre={selectedGenre}></GameGrid>
       </GridItem>
     </Grid>
    </>

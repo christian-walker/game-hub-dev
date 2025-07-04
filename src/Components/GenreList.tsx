@@ -1,8 +1,12 @@
-import { Heading, HStack, VStack, Text, Image, Skeleton, SkeletonText } from '@chakra-ui/react';
-import useGenres from '../hooks/useGenres';
+import { Heading, HStack, VStack, Text, Image, Skeleton, SkeletonText, Button } from '@chakra-ui/react';
+import useGenres, { Genre } from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 
-const GenreList = () => {
+
+interface Props {
+  setSelectGenre: (genre: Genre) => void;
+}
+const GenreList = ({setSelectGenre} : Props) => {
     const {data, loading, error} = useGenres();
     const skeletonCount = [1,2,3,4,5,6,7,8,9, 10]; // Number of skeletons to show when loading
 
@@ -23,9 +27,9 @@ const GenreList = () => {
         }
                         {
                 data.map((genre) => (
-                  <HStack key={genre.id} >
+                  <HStack key={genre.id}>
                   <Image src={getCroppedImageUrl(genre.image_background)} boxSize="32px" borderRadius={8} objectFit="cover" marginRight={2} />
-                  <Text>{genre.name}</Text>
+                  <Button variant="text" onClick={() => setSelectGenre(genre) } fontSize="lg">{genre.name}</Button>
               </HStack>
                 ))
             }

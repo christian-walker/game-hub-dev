@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import apiClient, { CanceledError } from '../services/api-client';
+import { Axios, AxiosRequestConfig } from 'axios';
 
 export interface FetchResponse<T>{
     count: number;
@@ -7,7 +8,7 @@ export interface FetchResponse<T>{
     // Add other game properties as needed
 }
 
-const useData = <T>(endpoint: string) => {
+const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -16,7 +17,7 @@ const useData = <T>(endpoint: string) => {
         setLoading(true);
         const controller = new AbortController();
         apiClient
-        .get<FetchResponse<T>>(endpoint, {signal: controller.signal})
+        .get<FetchResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
         .then(res => {
             setData(res.data.results);
             setLoading(false);
@@ -29,7 +30,7 @@ const useData = <T>(endpoint: string) => {
 
         return () => controller.abort();
 
-      }, []);
+      }, deps ? [...deps] : []);
 
       return ({ data, loading, error });
 }
