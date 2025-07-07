@@ -4,6 +4,7 @@ import { icons } from "react-icons";
 import PlatformIconList from "./PlatformIconList";
 import MetaCritic from "./MetaCritic";
 import getCroppedImageUrl from "../services/image-url";
+import Emoji from "./Emoji";
 
 interface Props {
     game: Game
@@ -21,15 +22,15 @@ const GameCard = ({ game }: Props) => {
             width="100%"
             height="200px" />
         <CardBody>
-            <Heading as="h2" fontSize="2xl" noOfLines={1}>
-                {game.name}
-            </Heading>
-            <HStack justifyContent="space-between" marginTop={2}>
+            <HStack justifyContent="space-between" marginBottom={2}>
                 <PlatformIconList
                     platforms={game.parent_platforms.map(p => p.platform)}
                 />
                 <MetaCritic rating={game.metacritic}/>  
             </HStack>
+            <Heading as="h2" fontSize="2xl" noOfLines={1}>
+                {game.name}<Emoji rating={game.rating_top}/>
+            </Heading>
         </CardBody>
     </Card>
     </>
